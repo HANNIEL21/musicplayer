@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './float.css';
 
 import {
@@ -10,10 +10,6 @@ import {
 import { MdOutlineLibraryMusic } from 'react-icons/md';
 
 const Float = () => {
-
-    const [active, setActive] = useState([])
-
-
 
     return (
         <div className='float d-flex align-items-center justify-content-center'>
