@@ -1,3 +1,7 @@
+import React, { useEffect } from 'react';
+import axios from "axios";
+
+
 import './App.css';
 import Float from './components/floatingNav/Float';
 import Float1 from './components/floatingNav/Float1';
@@ -9,6 +13,28 @@ import Search from './components/seachbar/Search';
 
 
 function App() {
+
+  const artists = {
+    method: 'GET',
+    url: 'https://api.spotify.com/api/token/',
+    headers: {
+      'Content-type': 'application/json',
+      'Accept' : 'application/json',
+      'Authorization': "Basic" + (new Buffer("e33fcf1323d54f389617981247cae646" + "0065764f3e3f4b60bb2f27540dc3646b"))
+    }
+  };
+
+
+  useEffect(() => {
+    axios.request(artists)
+      .then(function (response) {
+        console.log(response.data);
+      }).catch(function (error) {
+        console.error(error);
+      });
+
+  }, [])
+
   return (
     <div className="App">
       <Header />
